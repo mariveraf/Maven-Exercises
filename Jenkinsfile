@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('error') {
       steps {
-        echo 'Iniciando compilación'
+        echo 'Iniciando compilaciÃ³n'
       }
     }
 
@@ -11,7 +11,7 @@ pipeline {
       parallel {
         stage('Cambio de rama') {
           steps {
-            sh 'git checkout answers4'
+            sh 'git branch --all'
           }
         }
 
@@ -27,7 +27,7 @@ pipeline {
     stage('Maven install') {
       steps {
         sh 'mvn clean install'
-        echo 'Compilaci�n completada'
+        echo 'Compilación completada'
       }
     }
 
