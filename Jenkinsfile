@@ -11,7 +11,7 @@ pipeline {
       parallel {
         stage('Cambio de rama') {
           steps {
-            sh 'git branch --all'
+            sh 'ls -l'
           }
         }
 
