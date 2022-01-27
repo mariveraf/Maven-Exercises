@@ -1,11 +1,33 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        echo 'Iniciando compilación'
+        echo 'Iniciando compilaciÃ³n'
+      }
+    }
+
+    stage('Cambio de rama') {
+      parallel {
+        stage('Cambio de rama') {
+          steps {
+            sh 'git checkout answers4'
+          }
+        }
+
+        stage('Texto') {
+          steps {
+            echo 'Cambiando de rama'
+          }
+        }
+
+      }
+    }
+
+    stage('Maven install') {
+      steps {
         sh 'mvn clean install'
-        echo 'Compilación finalizada'
+        echo 'Compilación completada'
       }
     }
 
